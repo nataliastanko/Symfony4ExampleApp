@@ -1,0 +1,4 @@
+Entity\About:
+    about_text_{1..10}:
+        name: <sentence()>
+        content: <text()>
