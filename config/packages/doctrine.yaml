@@ -18,11 +18,16 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            App:
+            default:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'Entity'
+                # this is alias for dql;
+                # alias: 'Abc' - select a from Abc:About a
+                # ./bin/console doctrine:query:dql "select a from Abc:About a" --env=test --em=default
+                # or refer to the entities in your DQL by their namespaces;
+                # namespaces can be set in composer.json
                 alias: 'Entity'
            #  gedmo_translatable:
            #      type: annotation

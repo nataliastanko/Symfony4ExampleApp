@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Tests\Repository;
+
+use Entity\About;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
+
+class AboutRepositoryTest extends KernelTestCase
+{
+    use RefreshDatabaseTrait;
+
+    /**
+     * @var \Doctrine\ORM\EntityManager
+     */
+    private $entityManager;
+
+    protected function setUp()
+    {
+        $kernel = self::bootKernel();
+
+        $this->entityManager = $kernel->getContainer()
+            ->get('doctrine.orm.default_entity_manager');
+    }
+
+    public function testSearchByName()
+    {
+        $abouts = $this->entityManager
+            ->getRepository(About::class)
+            ->findAll()
+        ;
+
+        $about = $this->entityManager
+            ->getRepository(About::class)
+            ->findOneBy(['name' => 'How does it work?'])
+        ;
+
+        // $repo = $this->entityManager->getRepository('Entity:About');
+        // $theProduct = $this->entityManager->find("Entity\About", 1);
+
+        $this->assertCount(11, $abouts);
+        // $this->assertNotNull($about);
+        $this->assertInstanceOf(About::class, $about);
+    }
+
+    protected function tearDown()
+    {
+        parent::tearDown();
+
+        // doing this is recommended to avoid memory leaks
+        $this->entityManager->close();
+        $this->entityManager = null;
+    }
+}

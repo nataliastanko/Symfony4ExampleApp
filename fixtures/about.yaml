@@ -1,4 +1,7 @@
 Entity\About:
+    about_text_custom_1:
+      name: How does it work?
+      content: This programme is volunteer-led. It matches mentees with mentors so mentees can achieve their career goals.
     about_text_{1..10}:
         name: <sentence()>
         content: <text()>
