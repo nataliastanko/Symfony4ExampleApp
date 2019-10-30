@@ -1,4 +1,4 @@
-Entity\About:
+App\Entity\About:
     about_text_custom_1:
       name: How does it work?
       content: This programme is volunteer-led. It matches mentees with mentors so mentees can achieve their career goals.

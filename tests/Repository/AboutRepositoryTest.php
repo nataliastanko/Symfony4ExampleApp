@@ -2,7 +2,7 @@
 
 namespace App\Tests\Repository;
 
-use Entity\About;
+use App\Entity\About;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
