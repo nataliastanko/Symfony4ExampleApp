@@ -7,12 +7,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * About the programme
- *
- * @author Natalia Stanko <contact@nataliastanko.com>
  * @ORM\Entity()
  * @ORM\Table(name="about")
- *
  */
 class About
 {
@@ -26,93 +22,60 @@ class About
     private $id;
 
     /**
-     * @var int
      * @Gedmo\SortablePosition
      * @ORM\Column(type="integer")
      */
     private $position;
 
     /**
-     * @var string
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private $title;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setPosition($position)
+    public function setPosition($position): self
     {
         $this->position = $position;
 
         return $this;
     }
 
-    public function getPosition()
+    public function getPosition(): int
     {
         return $this->position;
     }
 
-    /**
-     * Set content.
-     *
-     * @param string $content
-     *
-     * @return Content
-     */
-    public function setContent($content)
+    public function setContent($content): self
     {
         $this->content = $content;
 
         return $this;
     }
 
-    /**
-     * Get content.
-     *
-     * @return string
-     */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return About
-     */
-    public function setName($name)
+    public function setTitle($title): self
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * Get name.
-     *
-     * @return string
-     */
-    public function getName()
+    public function getTitle(): string
     {
-        return $this->name;
+        return $this->title;
     }
 
 }

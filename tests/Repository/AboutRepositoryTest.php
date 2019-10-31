@@ -35,11 +35,7 @@ class AboutRepositoryTest extends KernelTestCase
             ->findOneBy(['name' => 'How does it work?'])
         ;
 
-        // $repo = $this->entityManager->getRepository('Entity:About');
-        // $theProduct = $this->entityManager->find("Entity\About", 1);
-
         $this->assertCount(11, $abouts);
-        // $this->assertNotNull($about);
         $this->assertInstanceOf(About::class, $about);
     }
 
