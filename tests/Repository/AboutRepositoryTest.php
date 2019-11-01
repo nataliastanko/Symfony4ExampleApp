@@ -32,7 +32,7 @@ class AboutRepositoryTest extends KernelTestCase
 
         $about = $this->entityManager
             ->getRepository(About::class)
-            ->findOneBy(['name' => 'How does it work?'])
+            ->findOneBy(['title' => 'How does it work?'])
         ;
 
         $this->assertCount(11, $abouts);
