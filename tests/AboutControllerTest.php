@@ -12,8 +12,8 @@ class AboutControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/about/');
 
         $this->assertResponseIsSuccessful();
-        // $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        // $this->assertSelectorTextContains('h1', 'Hello World');
+        $this->assertSelectorTextContains('h1', 'About index');
     }
 }
